@@ -1,0 +1,81 @@
+/*
+    jquery.liScroll
+-----------------------------------------------*/
+.liScroll-container { /* the outer div with the black border */
+    border: 1px solid #ccc;
+    background: #fff; 
+    height: 20px; 
+    margin: 0 0 15px; 
+    padding: 2px 85px 2px 5px;
+	position: relative;
+    overflow: hidden; 
+}
+.liScroll-container .liScroll-mask { /* that serves as a mask. so you get a sort of padding both left and right */
+    position: relative;
+    overflow: hidden;
+}
+    .liScroll-ticker { /* that's your list */
+        position: relative;
+        left: 300px;
+        list-style: none;
+        list-style-image: none;
+        margin: 0;
+        padding: 0;
+    }
+        .liScroll-ticker ul {
+            list-style: none;
+            list-style-image: none;
+            margin: 0;
+            padding: 0;            
+        }
+        .liScroll-ticker li {
+            float: left; /* important: display inline gives incorrect results when you check for elem's width */
+            list-style: none;
+            list-style-image: none;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+            .liScroll-ticker a {
+                color: #b21226;
+                white-space: nowrap;
+                padding: 0;
+                margin: 0 50px 0 0;
+                text-decoration: none;
+            } 
+                .liScroll-ticker a:hover {
+                    text-decoration: underline;
+                }
+            .liScroll-ticker span {
+                margin: 0 10px 0 0;
+            } 
+
+    .liScroll-container .liScroll-prev,
+    .liScroll-container .liScroll-play,
+    .liScroll-container .liScroll-next {
+        background: url(sprites.gif) no-repeat 1px 2px;
+        cursor: pointer;
+        height: 25px;
+        position: absolute;        
+        text-align: left;
+        text-indent: -9999px;
+        top: 0px;
+    }
+    .liScroll-container .liScroll-prev {
+        right: 55px;
+        width: 25px;
+    }
+    .liScroll-container .liScroll-play {
+        background-position: -25px -24px;
+        right: 25px;
+        width: 25px;
+    }
+    .liScroll-playing .liScroll-play {
+        background-position: -25px 2px;
+    }
+    .liScroll-container .liScroll-next {
+        background-position: -100px 2px;
+        right: 0px;
+        width: 25px;
+    }
+
