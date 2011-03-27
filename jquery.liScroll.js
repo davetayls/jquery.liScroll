@@ -2,31 +2,27 @@
  * liScroll 1.1 updated by @davetayls
  * 
  * Examples and documentation at:
- * http://the-taylors.org/blog/2010/ 
+ * http://the-taylors.org/blog/2010/03/15/liscroll-jquery-news-ticker-customisation-with-next-previous-play/
  * http://www.gcmingati.net/wordpress/wp-content/lab/jquery/newsticker/jq-liscroll/scrollanimate.html
  * 
  * 2007-2009 Gian Carlo Mingati
- * Version: 1.0.1 (07-DECEMBER-2009)
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  * 
- * Requires:
- * jQuery v1.2.x or later
- * 
  */
 (function($){	
 
-	$.fn.liScroll = function(settings) {
+	jQuery.fn.liScroll = function(settings) {
 	    
-		settings = jQuery.extend({
+		settings = $.extend({
 	        travelocity: 0.05,
 	        showControls: false
 	    }, settings);
 		
 	    return this.each(function() {
 	        var strip = this,
-	        	$strip = jQuery(strip);
+	        	$strip = $(strip);
 	
 	        $strip.addClass("liScroll-ticker")
 	        $stripItems = $strip.find("li");
@@ -50,7 +46,7 @@
 	                        index = i;
 	                        return false;
 	                    }
-	                    accumulatedWidth += jQuery(this).width();
+	                    accumulatedWidth += $(this).width();
 	                    if (currentLeft > (0 - accumulatedWidth)) {
 	                        index = i;
 	                        return false;
@@ -119,7 +115,9 @@
 	                .appendTo($tickercontainer)
 	                .click(function() { next.call(strip); });
 	        }
-	
+			
+			// calculate full width
+			$strip.width(10000); // temporary width to prevent inline elements wrapping to initial width of ul
 	        $stripItems.each(function(i) {
 	            stripWidth += $(this).outerWidth();
 	        });
